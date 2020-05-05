@@ -1,0 +1,44 @@
+.contain{
+    width: 100%;
+    height: 500px;
+ 
+   
+}
+
+.content{
+    display: flex;
+    padding: 0;
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+}
+.contain .nameProductText{
+width: 30%;
+height: 100%;
+text-align: center;
+
+}
+
+.contain .gram{
+    width: 30%;
+    height: 100%;
+    text-align: center;
+ 
+
+}
+
+.contain .price{
+    width: 30%;
+    height: 100%;
+    text-align: center;
+   
+}
+
+.nameProduct{
+    height: 10px;
+    padding: 20px;
+}
+
+.btn{
+    height: 50px;
+}
