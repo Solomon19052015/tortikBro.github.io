@@ -51,11 +51,12 @@ body{
 }
 
 .osn{
-    height: 60px;
+    height: 40px;
     text-align: center;
     padding: 0;
     margin: 0px;
-    line-height: 60px;
+     
+    margin-top: 20px;
     font-family: "Roboto";
 }
 .contain .pp{
