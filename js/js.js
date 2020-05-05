@@ -12,7 +12,9 @@ let resultSearch;
 let resultCalculation;
 let countClass = 0;
 
-btn.onclick = inputValueGo;
+
+btn.addEventListener('click', inputValueGo);
+btn.addEventListener('keyup', inputValueGo);
 
 let namePriceProduct ={
     "сливочное масло, 160" : 2.13,
@@ -48,6 +50,7 @@ let namePriceProduct ={
 //СОБЫТИЕ НАЖАТИЯ КНОПКИ
 
 function inputValueGo(){
+    if(event.code == 'Enter' || event.which == 1){
     inputValue = input.value;
    // console.log(inputValue);
   array= processingTextAddArray(inputValue);
@@ -64,6 +67,7 @@ function inputValueGo(){
 
   allElPp();
   input.value = '';
+}
 }
 //С ФОРМЫ ЗНАЧЕНИЕ РАЗДЕЛЯЕТСЯ И ДОБАВЛЯЕТСЯ В МАССИВ
 function processingTextAddArray(value){
@@ -112,10 +116,12 @@ function calculationPrice(val1, val2){
 
 function addHtml(name,gram,price){
     countClass++;
+   
+
     let pName = document.createElement('p');
     pName.classList.add("p" + countClass);
     pName.classList.add("pp");
-    pName.innerHTML= name;
+    pName.innerHTML= name[0].toUpperCase()+name.slice(1);
     nameProductTextEl.append(pName);
     let pGram = document.createElement('p');
     pGram.classList.add("p" + countClass);
@@ -132,7 +138,7 @@ function addHtml(name,gram,price){
 }
 
 function addHtmlTotalPrice(el,val){
-    el.innerHTML = "Итог: "  +  val;
+    el.innerHTML = "Итог: "  +  val + "р";
 
 }
 
