@@ -2,11 +2,13 @@ let input = document.querySelector(".nameProduct");
 let inputValue;
 let btn = document.querySelector(".btn");
 let nameProductTextEl = document.querySelector('.nameProductText');
-let gramEl = document.querySelector('.gram');
+let gramEl = document.querySelector('.gramConteiner');
 let priceEl = document.querySelector('.price');
 let totalPriceEl = document.querySelector(".totalPrice");
+let totalGramEl = document.querySelector(".totalGram");
 
 let arrPrice = 0;
+let totalGram = 0;
 let array = [] ;
 let resultSearch;
 let resultCalculation;
@@ -55,15 +57,18 @@ function inputValueGo(){
    // console.log(inputValue);
   array= processingTextAddArray(inputValue);
   resultSearch = saerchValueObject(namePriceProduct, array[0]);
-  resultCalculation = Number(calculationPrice(array[1],resultSearch));
+  resultCalculation = calculationPrice(array[1],resultSearch);
  // (arrPrice += resultCalculation).toFixed(2) ;
-  arrPrice =arrPrice + resultCalculation;
+  arrPrice += Number(resultCalculation);
+  totalGram+=Number(array[1]);
+  console.log(totalGram);
   if(arrPrice>0){
     arrPrice = Number(arrPrice.toFixed(2));
   }
   
   addHtml(array[0],array[1],resultCalculation);
-  addHtmlTotalPrice(totalPriceEl,arrPrice);
+  addHtmlTotalPrice(totalPriceEl,arrPrice,totalGram);
+
 
   allElPp();
   input.value = '';
@@ -91,7 +96,7 @@ function saerchValueObject(obj,val){
      if(name == val){
         resultSearch = key + "," + obj[key];
        // console.log(resultSearch );
-         return resultSearch;
+         return String(resultSearch);
      }
     
     }
@@ -116,8 +121,6 @@ function calculationPrice(val1, val2){
 
 function addHtml(name,gram,price){
     countClass++;
-   
-
     let pName = document.createElement('p');
     pName.classList.add("p" + countClass);
     pName.classList.add("pp");
@@ -126,6 +129,7 @@ function addHtml(name,gram,price){
     let pGram = document.createElement('p');
     pGram.classList.add("p" + countClass);
     pGram.classList.add("pp");
+    pGram.classList.add("gram" + countClass);
     pGram.innerHTML= gram;
     gramEl.append(pGram);
     let pPrice = document.createElement('p');
@@ -137,11 +141,14 @@ function addHtml(name,gram,price){
 
 }
 
-function addHtmlTotalPrice(el,val){
-    el.innerHTML = "Итог: "  +  val + "р";
+function addHtmlTotalPrice(el,val, val2){
+    el.innerHTML = "Итог: "  +  val + "р,     " + val2  + "г";
 
 }
 
+
+
+//ДОБАВЛЕНИЕ СОБЫТИЯ ВСЕМ НОВЫМ СТРОКАМ
 function allElPp(){
     let pp = document.querySelectorAll(".pp");
     for(let i =0; i < pp.length; i++){
@@ -153,12 +160,17 @@ allElPp();
 
 function clickDelete(){
     let delPrice = searchEventCkick();
+  
   //  (arrPrice-=searchEventCkick()).toFixed(2);
-    arrPrice = arrPrice - delPrice;
+    arrPrice-=delPrice[0];
+    console.log(delPrice[0]);
+    totalGram-=Number(delPrice[1]);
+
     if(arrPrice>0){
         arrPrice= Number(arrPrice.toFixed(2));
     }
-    addHtmlTotalPrice(totalPriceEl,arrPrice);
+    addHtmlTotalPrice(totalPriceEl,arrPrice,totalGram);
+   
  
     
 }
@@ -169,19 +181,36 @@ function searchEventCkick(){
     let allEventEl = document.querySelectorAll("." + needClass);
   
    let decreaseSum=decreaseTotalPrice(needClass);
-    for(let i = 0; i < allEventEl.length; i++){
+   let decreaseGram= decreaseTotalGram(needClass);
+   let arrPriceGram=[] ;
+   arrPriceGram.push(decreaseSum);
+   arrPriceGram.push(decreaseGram);
+
+      for(let i = 0; i < allEventEl.length; i++){
       allEventEl[i].remove();
     }
-    console.log(typeof needClass);
-    return decreaseSum;
+    
+    return arrPriceGram;
 }
 
 
 function decreaseTotalPrice(el){
     let num = el.slice(1, el.lenght);
     let classPriceNeed = document.querySelector(".price" + num);
+    console.log(classPriceNeed);
+    let contentPrice = classPriceNeed.textContent;
+    return Number(contentPrice);
+
+}
+
+function decreaseTotalGram(el){
+    let num = el.slice(1, el.lenght);
+    let classPriceNeed = document.querySelector(".gram" + num);
   //  console.log(classPriceNeed);
     let contentPrice = classPriceNeed.textContent;
     return Number(contentPrice);
 
 }
+
+
+

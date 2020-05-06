@@ -19,7 +19,7 @@ body{
     font-size: 14px;
     font-family: 'Roboto Lt';
     background: rgb(243, 243, 243);
-    color: rgb(61, 61, 61);
+    color: rgb(88, 88, 88);
     font-weight: 100;
 }
 
@@ -64,7 +64,7 @@ body{
     padding: 0;
     margin: 0;
     height: 40px;
-    border-top: 1px solid #e9e6e6;
+    border-top: 1px solid #e0e0e0;
     line-height: 40px;
     text-align: center;
     transition: all 0.3s ease;
@@ -105,15 +105,15 @@ width: 33%;
 height: 100%;
 text-align: center;
 border-top-left-radius: 50px;
-background: rgb(238, 238, 238);
+background: rgb(231, 231, 231);
 
 }
 
-.contain .gram{
+.contain .gramConteiner{
     width: 33%;
     height: 100%;
     text-align: center;
-    background: rgb(238, 238, 238);
+    background: rgb(231, 231, 231);
  
 
 }
@@ -122,15 +122,24 @@ background: rgb(238, 238, 238);
     width: 33%;
     height: 100%;
     text-align: center;
-    background: rgb(238, 238, 238);
+    background: rgb(231, 231, 231);
     border-top-right-radius: 50px;
    
 }
 .total{
 margin-top: 50px;
-margin-left: 100px;
+
 font-weight: bold;
 font-size: 16px;
 font-family: "Roboto";
+display: flex;
+justify-content: center;
 }
+
+.total .totalGram{
+    color: #000;
+    font-size: 20px;
+}
+
+
 
