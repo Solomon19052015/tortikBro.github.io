@@ -12,9 +12,18 @@
   body .content {
     width: 100%;
   }
+  body .forms{
+    width: 100%;
+  }
+
+  body .forms .formTag{
+    width: 100%;
+    
+  }
+
   @media (max-width: 500px) {
  body .nameProductUser{
-    width: 200px;
+    
  }
 
   }
@@ -52,7 +61,7 @@ body {
   border: 1px solid rgb(209, 209, 209);
   color: rgb(61, 61, 61);
   background: rgb(248, 248, 248);
-    width: 250px;
+    width: 60%;
 }
 
 .nameProductUser:focus {
@@ -144,8 +153,18 @@ body {
 
 
 .forms {
-  width: 460px;
+  width: 100%;
   margin: 0 auto 40px;
+}
+
+.forms .formTag{
+    margin: 0 auto;
+    width: 50%;
+    min-width: 360px;
+ 
+    display: flex;
+    justify-content: center;
+
 }
 
 
