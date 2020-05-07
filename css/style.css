@@ -87,7 +87,7 @@ margin: 0 auto ;
 display: block;
 margin-bottom: 40px;
 color: rgb(160, 160, 160);
-background: rgb(255, 253, 224);
+background: rgba(253, 247, 170, 0.445);
 transition: all 0.5s ease;
 
 }
