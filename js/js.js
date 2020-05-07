@@ -1,4 +1,4 @@
-let input = document.querySelector(".nameProduct");
+let input = document.querySelector(".nameProductUser");
 let inputValue;
 let btn = document.querySelector(".btn");
 let nameProductTextEl = document.querySelector('.nameProductText');
@@ -16,7 +16,7 @@ let countClass = 0;
 
 
 btn.addEventListener('click', inputValueGo);
-btn.addEventListener('keyup', inputValueGo);
+
 
 let namePriceProduct ={
     "сливочное масло, 160" : 2.13,
@@ -52,7 +52,7 @@ let namePriceProduct ={
 //СОБЫТИЕ НАЖАТИЯ КНОПКИ
 
 function inputValueGo(){
-    if(event.code == 'Enter' || event.which == 1){
+    
     inputValue = input.value;
    // console.log(inputValue);
   array= processingTextAddArray(inputValue);
@@ -67,13 +67,26 @@ function inputValueGo(){
   }
   
   addHtml(array[0],array[1],resultCalculation);
-  addHtmlTotalPrice(totalPriceEl,arrPrice,totalGram);
+  addHtmlTotalPrice(totalPriceEl,arrPrice);
+  addHtmlTotalGram(totalGramEl,totalGram);
 
+setTimeout(allElPp,50);
 
-  allElPp();
   input.value = '';
+
 }
+
+
+document.onkeyup = function (e) {
+	e = e || window.event;
+	if (e.keyCode === 13) {
+		inputValueGo();
+	}
+	// Отменяем действие браузера
+	return false;
 }
+
+
 //С ФОРМЫ ЗНАЧЕНИЕ РАЗДЕЛЯЕТСЯ И ДОБАВЛЯЕТСЯ В МАССИВ
 function processingTextAddArray(value){
     let indx = value.indexOf(',',1);
@@ -123,30 +136,38 @@ function addHtml(name,gram,price){
     countClass++;
     let pName = document.createElement('p');
     pName.classList.add("p" + countClass);
-    pName.classList.add("pp");
-    pName.innerHTML= name[0].toUpperCase()+name.slice(1);
-    nameProductTextEl.append(pName);
+    setTimeout(addClassAnimation,11,pName);
+     pName.innerHTML= name[0].toUpperCase()+name.slice(1);
+    nameProductTextEl.prepend(pName);
     let pGram = document.createElement('p');
     pGram.classList.add("p" + countClass);
-    pGram.classList.add("pp");
-    pGram.classList.add("gram" + countClass);
+    setTimeout(addClassAnimation,11,pGram);
+     pGram.classList.add("gram" + countClass);
     pGram.innerHTML= gram;
-    gramEl.append(pGram);
+    gramEl.prepend(pGram);
     let pPrice = document.createElement('p');
     pPrice.classList.add("p" + countClass);
-    pPrice.classList.add("pp" );
-    pPrice.classList.add("price" + countClass);
+    setTimeout(addClassAnimation,11,pPrice);
+     pPrice.classList.add("price" + countClass);
     pPrice.innerHTML= price;
-    priceEl.append(pPrice);
+    priceEl.prepend(pPrice);
 
 }
 
-function addHtmlTotalPrice(el,val, val2){
-    el.innerHTML = "Итог: "  +  val + "р,     " + val2  + "г";
+function addClassAnimation(el){
+    
+    el.classList.add("pp");
+}
+
+function addHtmlTotalPrice(el,val){
+    el.innerHTML =  val + "р";
 
 }
 
+function addHtmlTotalGram(el,val){
+    el.innerHTML =   val + "г";
 
+}
 
 //ДОБАВЛЕНИЕ СОБЫТИЯ ВСЕМ НОВЫМ СТРОКАМ
 function allElPp(){
@@ -169,26 +190,26 @@ function clickDelete(){
     if(arrPrice>0){
         arrPrice= Number(arrPrice.toFixed(2));
     }
-    addHtmlTotalPrice(totalPriceEl,arrPrice,totalGram);
-   
- 
-    
-}
+    addHtmlTotalPrice(totalPriceEl,arrPrice);
+    addHtmlTotalGram(totalGramEl,totalGram);
+  }
 
 function searchEventCkick(){
     let elEvent =  event.target;
     let needClass = elEvent.classList[0];
     let allEventEl = document.querySelectorAll("." + needClass);
-  
-   let decreaseSum=decreaseTotalPrice(needClass);
+     let decreaseSum=decreaseTotalPrice(needClass);
    let decreaseGram= decreaseTotalGram(needClass);
    let arrPriceGram=[] ;
    arrPriceGram.push(decreaseSum);
    arrPriceGram.push(decreaseGram);
-
+   
       for(let i = 0; i < allEventEl.length; i++){
-      allEventEl[i].remove();
+        allEventEl[i].classList.add('delString');
+    
     }
+
+    setTimeout(animationDelEl,700,allEventEl);
     
     return arrPriceGram;
 }
@@ -200,7 +221,6 @@ function decreaseTotalPrice(el){
     console.log(classPriceNeed);
     let contentPrice = classPriceNeed.textContent;
     return Number(contentPrice);
-
 }
 
 function decreaseTotalGram(el){
@@ -212,5 +232,14 @@ function decreaseTotalGram(el){
 
 }
 
+function animationDelEl(el){
 
+    for(let i = 0; i < el.length; i++){
+      
+        el[i].remove()
+     
+    }
+
+   
+}
 
