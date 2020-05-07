@@ -1,0 +1,249 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../font/Roboto-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Roboto Lt";
+  src: url("../font/Roboto-Light.ttf");
+}
+
+@media (max-width: 800px) {
+  body .content {
+    width: 100%;
+  }
+  body .forms{
+    width: 100%;
+  }
+
+  body .forms .formTag{
+    width: 100%;
+    
+  }
+
+  @media (max-width: 500px) {
+ body .nameProductUser{
+    
+ }
+
+  }
+  body .headTable{
+      width: 100%;
+      padding: 0;
+      padding-top: 5px;
+      padding-bottom: 20px;
+  }
+}
+
+body {
+  font-size: 14px;
+  font-family: "Roboto Lt";
+  background: rgb(248, 248, 248);
+  color: rgb(66, 66, 66);
+  font-weight: 100;
+}
+
+.all{
+    margin-top: 40px;
+    /* background: url(cake_PNG13143.png) no-repeat;
+    height: 90vh;
+   
+    background-size: 120px 130px;
+    background-position: 10% bottom;
+    background-attachment: scroll; */
+   
+}
+
+.nameProductUser {
+  height: 10px;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgb(209, 209, 209);
+  color: rgb(61, 61, 61);
+  background: rgb(248, 248, 248);
+    width: 60%;
+}
+
+.nameProductUser:focus {
+  outline: none;
+}
+.btn {
+  height: 50px;
+  width: 100px;
+  font-size: 12px;
+  border-radius: 12px;
+  background: rgb(248, 248, 248);
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  margin-left: 10px;
+  color: rgb(61, 61, 61);
+  border: 1px solid rgb(209, 209, 209);
+}
+.btn:hover {
+  background: rgb(238, 239, 255);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.headTable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 20px;
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+  min-width: 360px;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  background: rgb(238, 239, 255);
+  border-bottom: 3px solid rgb(248, 248, 248);
+    border-radius: 5px;
+  border-radius: 5px;
+}
+
+.osn {
+  height: 30px;
+  text-align: center;
+  margin: 15px 0 0 0px;
+  font-family: "Roboto";
+  text-align: center;
+  width: 33%;
+  font-weight: 600;
+  padding: 0px 20px;
+}
+
+
+.contain .content .pp {
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  height: 40px;
+  border-top: 1px solid rgb(230, 230, 230);
+  border-left: 1px solid rgb(230, 230, 230);
+  border-right: 1px solid rgb(230, 230, 230);
+
+  line-height: 40px;
+  text-align: center;
+  -webkit-transition: all .7s ease;
+  transition: all .7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: block;
+ opacity: 1;
+    transform: rotateX(0deg) scaleY(1);
+ /*  background: rgb(255, 255, 236); */
+  position: relative;
+}
+
+.contain .content .pp:hover {
+  background: rgb(212, 212, 212);
+}
+
+
+.contain .nameProductText p, .contain .gramConteiner p, .contain .price p{
+    transition: all .7s ease;
+     transform: rotateX(-360deg) scaleY(0);
+     position: absolute;
+     opacity: 0;
+     height: 0;
+   
+ }
+
+
+.forms {
+  width: 100%;
+  margin: 0 auto 40px;
+}
+
+.forms .formTag{
+    margin: 0 auto;
+    width: 50%;
+    min-width: 360px;
+ 
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+  min-width: 360px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.contain .nameProductText {
+  width: 33%;
+  height: 100%;
+  text-align: center;
+
+  position: relative;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+
+
+.contain .gramConteiner {
+  width: 33%;
+  height: 100%;
+  text-align: center;
+  /*  background: rgb(231, 231, 231); */
+  position: relative;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.contain .price {
+  width: 33%;
+  height: 100%;
+  text-align: center;
+  /*   background: rgb(231, 231, 231); */
+  position: relative;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.contain .content .total {
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "Roboto";
+  border-top: 3px solid rgb(248, 248, 248);
+  padding: 12px 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  transform: translateX(0);
+  background: rgb(238, 239, 255);
+  height: 20px;
+
+  opacity: 1;
+}
+
+.totalPrice {
+}
+.totalGram {
+}
+.totalName {
+}
+
+ .contain .content .delString {
+    position: relative;
+  height: 0px; 
+  overflow: hidden;
+   -webkit-transform: rotateX(360deg) scaleY(0);
+          transform: rotateX(360deg) scaleY(0);
+          text-overflow: clip;
+          transition: all 0.7s ease;
+}
