@@ -23,6 +23,14 @@
   body .forms .formTag .nameProductUser{
     width: 50%;
   }
+
+  body .all h1 {
+    width: 100%;
+  }
+  body .all .helpWindow{
+    width: 75%;
+    padding: 30px;
+  }
 }
 
   @media (max-width: 500px) {
@@ -57,8 +65,76 @@ body {
     background-size: 120px 130px;
     background-position: 10% bottom;
     background-attachment: scroll; */
-   
+   min-width: 360px;
 }
+
+.all h1{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.all .helpBtn{
+border-radius: 100%;
+border: 1px solid rgb(230, 230, 230);
+width: 30px;
+height: 30px;
+text-align: center;
+padding: 0;
+/* box-shadow: 1px 1px 3px 1px #eaeaea; */
+cursor: pointer;
+margin: 0 auto ;
+display: block;
+margin-bottom: 40px;
+color: rgb(160, 160, 160);
+background: rgb(255, 253, 224);
+transition: all 0.5s ease;
+
+}
+.helpBtn:hover{
+  background:  rgb(238, 239, 255);
+}
+
+.all .helpBtn:focus{
+  outline: none;
+}
+
+
+.all .helpWindow{
+    position: absolute;
+    width: 50%;
+    height: fit-content;
+    background: rgba(220, 222, 255, 0.911);
+    top: 20%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    z-index: 99;
+    padding: 40px;
+    cursor: pointer;
+    color: rgb(66, 66, 66);
+    border-radius: 15px;
+    overflow: hidden;
+    transform: scale(0);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
+    transform-origin: top center;
+}
+.helpWindow:hover{
+  background: rgb(209, 212, 255);
+}
+.all .helpWindow.openHelpWindow{
+  transform: scale(1);
+  
+}
+
+
+
+.all .helpWindow h4{
+  margin-top: 0;
+}
+
+
 
 .nameProductUser {
   height: 10px;
