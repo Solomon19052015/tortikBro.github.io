@@ -53,20 +53,16 @@
   body .forms .formTag .nameProductUser{
     
     width: 55%;
-    height: 40px;
-    padding: 5px 15px;
-  }
-
-  body .forms .formTag .btn{
-    display: block;
-    width: 20%;
-    height: 52px;
    
   }
-  body .forms .sizeFormCake{
-    padding: 10px 20px;
-    width: 80%;
+
+   body .all .forms .formTag .sizeFormCake{
+    height: 50px;
+    box-sizing: content-box;
+     width: 50%;
     margin-bottom: 10px;
+    padding: 0 20px;
+    
     
   }
 
@@ -84,13 +80,7 @@ body {
 
 .all{
     margin-top: 40px;
-    /* background: url(cake_PNG13143.png) no-repeat;
-    height: 90vh;
-   
-    background-size: 120px 130px;
-    background-position: 10% bottom;
-    background-attachment: scroll; */
-   min-width: 360px;
+     min-width: 360px;
 }
 
 .all h1{
@@ -99,6 +89,7 @@ body {
   margin-bottom: 10px;
 }
 
+/* КНОПКА ПОМОЩИ */
 .all .helpBtn{
 border-radius: 100%;
 border: 1px solid rgb(230, 230, 230);
@@ -106,7 +97,6 @@ width: 30px;
 height: 30px;
 text-align: center;
 padding: 0;
-/* box-shadow: 1px 1px 3px 1px #eaeaea; */
 cursor: pointer;
 margin: 0 auto ;
 display: block;
@@ -124,7 +114,7 @@ transition: all 0.5s ease;
   outline: none;
 }
 
-
+/* ОКНО ПОМОЩИ */
 .all .helpWindow{
     position: absolute;
     width: 50%;
@@ -159,7 +149,24 @@ transition: all 0.5s ease;
   margin-top: 0;
 }
 
+/* ОБЩИЕ СТИЛИ ФОРМЫ */
+.forms {
+  width: 100%;
+  margin: 0 auto 40px;
+}
 
+.forms .formTag{
+    margin: 0 auto;
+    width: 50%;
+    min-width: 360px;
+ 
+    display: flex;
+    justify-content: center;
+
+}
+
+
+/* ФОРМА РАЗМЕРА  */
 .sizeFormCake{
   border: 1px solid rgb(209, 209, 209);
   color: rgb(61, 61, 61);
@@ -178,32 +185,36 @@ transition: all 0.5s ease;
   border-radius: 12px;
   background: rgb(248, 248, 248);
   border: 1px solid rgb(209, 209, 209);
- 
-  padding: 5px 0;
+  height: 50px;
+  padding: 0px 0;
+  box-sizing: content-box;
 }
 .sizeFormCake:focus{
   outline: none;
 }
 
 
-
-
+/* 
+ФОРМА ВВОДА ДАННЫХ */
 .nameProductUser {
-  height: 10px;
-  padding: 20px;
+  height: 50px;
+  padding: 0px 20px;
   border-radius: 12px;
   border: 1px solid rgb(209, 209, 209);
   color: rgb(61, 61, 61);
   background: rgb(248, 248, 248);
     width: 60%;
+    box-sizing: content-box;
 }
 
 .nameProductUser:focus {
   outline: none;
 }
 
+/* КНОПКА ДОБАВИТЬ */
 .btn {
   height: 50px;
+  display: block;
   width: 100px;
   font-size: 12px;
   border-radius: 12px;
@@ -214,6 +225,8 @@ transition: all 0.5s ease;
   margin-left: 10px;
   color: rgb(61, 61, 61);
   border: 1px solid rgb(209, 209, 209);
+  padding: 0;
+  box-sizing: content-box;
 }
 .btn:hover {
   background: rgb(238, 239, 255);
@@ -223,6 +236,7 @@ transition: all 0.5s ease;
   outline: none;
 }
 
+/* ШАПКА ТАБЛИЦЫ */
 .headTable {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -288,21 +302,6 @@ transition: all 0.5s ease;
  }
 
 
-.forms {
-  width: 100%;
-  margin: 0 auto 40px;
-}
-
-.forms .formTag{
-    margin: 0 auto;
-    width: 50%;
-    min-width: 360px;
- 
-    display: flex;
-    justify-content: center;
-
-}
-
 
 
 .content {
@@ -350,6 +349,7 @@ transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 
+/* ИТОГ */
 .contain .content .total {
   margin-top: 0;
   font-weight: bold;
@@ -367,6 +367,7 @@ transition: all 0.5s ease;
   opacity: 1;
 }
 
+/* АНИМАМЦИЯ УДАЛЕНИЯ */
  .contain .content .delString {
     position: relative;
   height: 0px; 
