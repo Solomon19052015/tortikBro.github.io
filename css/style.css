@@ -42,11 +42,36 @@
       padding-top: 5px;
       padding-bottom: 20px;
   }
-
-  body .forms.formTag{
-    width: 95%;
+ 
+  body .all .forms .formTag{
+    width: 90%;
+    flex-flow: row wrap;
+    overflow: hidden;
+  
     
   }
+  body .forms .formTag .nameProductUser{
+    
+    width: 55%;
+    height: 40px;
+    padding: 5px 15px;
+  }
+
+  body .forms .formTag .btn{
+    display: block;
+    width: 20%;
+    height: 52px;
+   
+  }
+  body .forms .sizeFormCake{
+    padding: 10px 20px;
+    width: 80%;
+    margin-bottom: 10px;
+    
+  }
+
+
+
 }
 
 body {
@@ -134,6 +159,7 @@ transition: all 0.5s ease;
   margin-top: 0;
 }
 
+
 .sizeFormCake{
   border: 1px solid rgb(209, 209, 209);
   color: rgb(61, 61, 61);
@@ -160,6 +186,8 @@ transition: all 0.5s ease;
 }
 
 
+
+
 .nameProductUser {
   height: 10px;
   padding: 20px;
@@ -173,6 +201,7 @@ transition: all 0.5s ease;
 .nameProductUser:focus {
   outline: none;
 }
+
 .btn {
   height: 50px;
   width: 100px;
@@ -219,7 +248,7 @@ transition: all 0.5s ease;
   text-align: center;
   width: 33%;
   font-weight: 600;
-  padding: 0px 20px;
+  padding: 0px 0px;
 }
 
 
@@ -228,15 +257,16 @@ transition: all 0.5s ease;
   padding: 0;
   margin: 0;
   height: 40px;
+  overflow: hidden;
   border-top: 1px solid rgb(230, 230, 230);
   border-left: 1px solid rgb(230, 230, 230);
   border-right: 1px solid rgb(230, 230, 230);
-
-  line-height: 40px;
   text-align: center;
   -webkit-transition: all .7s ease;
   transition: all .7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
  opacity: 1;
     transform: rotateX(0deg) scaleY(1);
  /*  background: rgb(255, 255, 236); */
@@ -335,13 +365,6 @@ transition: all 0.5s ease;
   height: 20px;
 
   opacity: 1;
-}
-
-.totalPrice {
-}
-.totalGram {
-}
-.totalName {
 }
 
  .contain .content .delString {
