@@ -10,6 +10,7 @@
 
 <body>
    <div class="all">
+      
       <h1>Рассчитай стоимость своего десерта </h1>
       <button class="helpBtn">?</button>
       <div class="helpWindow">
@@ -18,11 +19,22 @@
          <p>Для того что бы добавить продукт в рассчет необходимо: </p>
          <p>Ввести название продукта в окно ввода, в формате "Название продукта, необходимые граммы" и нажать кнопку "Добавить"</p>
          <p>После чего ваш продукт появится в списке, при необходимости продукт можно убрать из списка, нажав по нему</p>
+         <p>Приложение так же позволяет производить перерасчет на размер формы, для этого просто выберите необходимый размер формы</p>
          <br>
          <p>Приятной вам готовки!</p>
       </div>
       <div class="forms">
          <div class="formTag">
+            <select name="sizeForm" id="size" class="sizeFormCake">
+               <option value="16">14 см</option>
+               <option value="16">16 см</option>
+               <option value="18">18 см</option>
+               <option value="20">20 см</option>
+               <option value="22">22 см</option>
+               <option value="22">24 см</option>
+               <option value="22">26 см</option>
+               <option value="22">28 см</option>
+            </select>
    <input type="text" name="product" class="nameProductUser" autofocus list="nameProd" placeholder="Маскарпоне, 500">
    <datalist id="nameProd">
 

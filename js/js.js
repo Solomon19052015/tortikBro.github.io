@@ -12,8 +12,10 @@ let totalGram = 0;
 let array = [] ;
 let resultSearch;
 let resultCalculation;
-let countClass = 0;
+let countClass = -1;
 
+let savePriceOnArray=[];
+let saveGramOnArray=[];
 
 btn.addEventListener('click', inputValueGo);
 
@@ -26,7 +28,7 @@ let namePriceProduct ={
     "какао, 150": 1.77,
     "сахар, 1000": 1.54,
     "соль, 1000": 0.40,
-    "яица, 10":1.80,
+    "яица, 450":1.80,
     "молоко, 900": 1.48,
     "кофе растворимый, 250": 14.29,
     "грецкий орех, 1000":21.45,
@@ -77,15 +79,18 @@ function inputValueGo(){
   array= processingTextAddArray(inputValue);
   resultSearch = saerchValueObject(namePriceProduct, array[0]);
   resultCalculation = calculationPrice(array[1],resultSearch);
- // (arrPrice += resultCalculation).toFixed(2) ;
+  savePriceOnArray.push(resultCalculation);
+
+  saveGramOnArray.push(array[1]);
+  
   arrPrice += Number(resultCalculation);
   totalGram+=Number(array[1]);
-  console.log(totalGram);
+ // console.log(totalGram);
   if(arrPrice>0){
     arrPrice = Number(arrPrice.toFixed(2));
   }
   
-  addHtml(array[0],array[1],resultCalculation);
+ addHtml(array[0],array[1],resultCalculation);
   addHtmlTotalPrice(totalPriceEl,arrPrice);
   addHtmlTotalGram(totalGramEl,totalGram);
 
@@ -95,6 +100,11 @@ setTimeout(allElPp,50);
 
 }
 
+function changeValArray(arr,val){
+        arr[val]=null;
+        return arr;
+
+}
 
 document.onkeyup = function (e) {
 	e = e || window.event;
@@ -108,9 +118,14 @@ document.onkeyup = function (e) {
 
 //С ФОРМЫ ЗНАЧЕНИЕ РАЗДЕЛЯЕТСЯ И ДОБАВЛЯЕТСЯ В МАССИВ
 function processingTextAddArray(value){
+    
     let indx = value.indexOf(',',1);
     let valueNameProduct = value.slice(0,indx).toLowerCase();
+  
     let valueGram = value.slice(indx+1, value.lenght).trim();
+    if(valueNameProduct == "яица"){
+        valueGram*=45;
+    }
     let arr = [];
     arr.push(valueNameProduct);
     arr.push(valueGram);
@@ -151,6 +166,7 @@ function calculationPrice(val1, val2){
     return result.toFixed(2); 
 }
 
+
 function addHtml(name,gram,price){
     countClass++;
     let pName = document.createElement('p');
@@ -170,8 +186,11 @@ function addHtml(name,gram,price){
      pPrice.classList.add("price" + countClass);
     pPrice.innerHTML= price;
     priceEl.prepend(pPrice);
-
+   
+   return;
 }
+
+
 
 function addClassAnimation(el){
     
@@ -200,10 +219,11 @@ allElPp();
 
 function clickDelete(){
     let delPrice = searchEventCkick();
+   
   
   //  (arrPrice-=searchEventCkick()).toFixed(2);
     arrPrice-=delPrice[0];
-    console.log(delPrice[0]);
+   // console.log(delPrice[0]);
     totalGram-=Number(delPrice[1]);
 
     if(arrPrice>0){
@@ -217,6 +237,7 @@ function searchEventCkick(){
     let elEvent =  event.target;
     let needClass = elEvent.classList[0];
     let allEventEl = document.querySelectorAll("." + needClass);
+    console.log(allEventEl);
      let decreaseSum=decreaseTotalPrice(needClass);
    let decreaseGram= decreaseTotalGram(needClass);
    let arrPriceGram=[] ;
@@ -225,12 +246,10 @@ function searchEventCkick(){
    
       for(let i = 0; i < allEventEl.length; i++){
         allEventEl[i].classList.add('delString');
-    
     }
 
     setTimeout(animationDelEl,700,allEventEl);
-    
-    return arrPriceGram;
+       return arrPriceGram;
 }
 
 
@@ -247,18 +266,19 @@ function decreaseTotalGram(el){
     let classPriceNeed = document.querySelector(".gram" + num);
   //  console.log(classPriceNeed);
     let contentPrice = classPriceNeed.textContent;
-    return Number(contentPrice);
+    changeValArray(savePriceOnArray,num);
+    changeValArray(saveGramOnArray,num);
+        return Number(contentPrice);
 
 }
 
 function animationDelEl(el){
 
     for(let i = 0; i < el.length; i++){
-      
+    
         el[i].remove()
      
     }
-
    
 }
 
@@ -267,10 +287,8 @@ function animationDelEl(el){
 let helpBtnEl = document.querySelector(".helpBtn");
 let helpWindowEl = document.querySelector(".helpWindow");
 let countHelp = 0;
-
 helpBtnEl.addEventListener('click', openHelpWindowFunction) ;
 helpWindowEl.addEventListener('click', closeHelpWindowFunction) ;
-
 function openHelpWindowFunction(){
     countHelp++;
      helpWindowEl.classList.add('openHelpWindow');
@@ -282,4 +300,129 @@ function closeHelpWindowFunction(){
 
 }
 
+
+
+
+
+
+let sizeForm = document.querySelector(".sizeFormCake");
+let lastSizeFormCake = sizeForm.value;
+sizeForm.addEventListener('change', eventRecalculation);
+let stateSizeForm = true;
+
+function eventRecalculation(){
+    
+    let nowSizeCake = sizeForm.value;
+    //console.log(lastSizeFormCake,nowSizeCake);
+    if(lastSizeFormCake > nowSizeCake ){
+        stateSizeForm = false;
+    }
+    else{
+        stateSizeForm = true;
+    }
+   
+    let factor = calculationFactor(lastSizeFormCake, nowSizeCake);
+    savePriceOnArray= recalculationValue(savePriceOnArray,factor,"price");
+    saveGramOnArray = recalculationValue(saveGramOnArray,factor,"gram");
+    
+    arrPrice= sumAfterRecaculation(savePriceOnArray);
+    totalGram= sumAfterRecaculation(saveGramOnArray);
+    
+    if(arrPrice !=undefined && totalGram !=undefined){
+        console.log(arrPrice,totalGram)
+    arrPrice = arrPrice.toFixed(2);
+    totalGram = totalGram.toFixed(0);
+    }
+    else{
+        arrPrice = 0;
+        totalGram = 0;
+    }
+
+    addHtmlTotalPrice(totalPriceEl,arrPrice);
+    addHtmlTotalGram(totalGramEl,totalGram);
+ 
+    lastSizeFormCake=nowSizeCake;
+
+    
+}
+
+
+
+function recalculationValue(arr, factor,name){
+      
+    for(let i = 0; i < arr.length; i++){
+    
+        if(arr[i] != null && stateSizeForm ){
+         
+            if(name == "gram"){
+                arr[i] = (arr[i] * factor).toFixed(0);
+                arr[i] = Number(arr[i]);
+                console.log(arr);
+            }
+            else{
+                arr[i] = (arr[i] * factor).toFixed(2);
+                arr[i] = Number(arr[i]);
+            }
+        
+    
+        searchTagRecalculation(i,name,arr[i]);
+
+        }
+        else if(arr[i] != null && !stateSizeForm){
+           
+            if(name == "gram"){
+                arr[i] = (arr[i] / factor).toFixed(0);
+                console.log(arr[i] , factor);
+            }
+            else{
+                arr[i] = (arr[i] / factor).toFixed(2);
+            }
+      
+            searchTagRecalculation(i,name,arr[i]);
+        }
+    }
+    return arr
+}
+
+
+
+function searchTagRecalculation(index, name,value){
+    let nameClass ='.'+ name + index;
+    console.log(nameClass);
+
+    let el =document.querySelector(nameClass);
+    el.innerHTML=value;
+  
+    return;
+}
+
+function sumAfterRecaculation(arr){
+  
+    let sum = 0;
+    for(let i=0; i < arr.length; i++){
+          if(arr[i] != null){
+            sum+=Number(arr[i]);
+        }
+    }
+    if(sum ==0){
+        return
+    }
+    else{
+        console.log(sum);
+        return sum;
+    }
+   
+}
+
+function calculationFactor(valLastSize, valNowSize){
+  
+    if(valNowSize>valLastSize){
+        return Math.pow(valNowSize,2)/Math.pow(valLastSize,2);
+    }
+    else{
+        return Math.pow(valLastSize,2)/Math.pow(valNowSize,2);
+    }
+   
+
+}
 
