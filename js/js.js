@@ -28,7 +28,8 @@ let namePriceProduct ={
     "какао, 150": 1.77,
     "сахар, 1000": 1.54,
     "соль, 1000": 0.40,
-    "яица с1, 600": 1.80,
+    "яица с1 (шт), 10": 1.80,
+    "яица с1 (г), 600": 1.80,
     "молоко 3.2%, 900": 1.48,
     "молоко 2.5%, 900": 1.15,
     "кофе растворимый, 250": 14.29,
@@ -171,7 +172,7 @@ function processingTextAddArray(value){
     let valueNameProduct = value.slice(0,indx).toLowerCase();
  
     let valueGram = value.slice(indx+1, value.lenght).trim();
-    if(valueNameProduct == "яица с1"){
+    if(valueNameProduct == "яица с1 (шт)"){
         valueGram*=60;
     }
     if(isNaN(valueGram) ){
