@@ -20,7 +20,7 @@
     width: 95%;
     
   }
-  body .forms .formTag .nameProductUser{
+  body .forms .formTag .divNameProductUser{
     width: 50%;
   }
 
@@ -33,9 +33,11 @@
   }
 }
 
-  @media (max-width: 500px) {
+  @media (max-width: 650px) {
 
-  
+  body .forms{
+    margin-bottom: 20px;
+  }
   body .headTable{
       width: 100%;
       padding: 0;
@@ -47,52 +49,121 @@
     width: 90%;
     flex-flow: row wrap;
     overflow: hidden;
+    padding: 30px 0 20px;
+    height: 120px;
   
     
   }
+
+  body .all .forms .divSizeFormCake{
+    width: 50%;
+    justify-content: flex-start;
+
+  }
+
+  body .all .forms .divWeightCake{
+    width: 50%;
+    justify-content: flex-end;
+  }
+
+  body .all .forms .divNameProductUser{
+    width: 70%;
+    justify-content: flex-start;
+  }
+  body .all .forms .divBtn{
+    width: 30%;
+    margin-left: 0px;
+    justify-content: flex-end;
+    
+  }
+
+  body .all .forms .btn{
+    width: 90%;
+    margin-left: 0;
+    display: block;
+  }
   body .forms .formTag .nameProductUser{
     
-    width: 55%;
+    width: 90%;
    
   }
 
    body .all .forms .formTag .sizeFormCake{
     height: 50px;
     box-sizing: content-box;
-     width: 55%;
-    margin-bottom: 10px;
+     width: 90%;
+    margin-bottom: 0px;
     padding: 0 20px;
     
     
   }
   body .all .forms .formTag .weightCake{
     margin-right: 0;
+    width: 90%;
   }
+
+  .divSizeFormCake::after{
+    content: "Размер формы";
+   position: absolute;
+   width: 85%;
+   top: -20px;
+   left: 0;
+   right: 0;
+   text-align: center;
+   color:  rgb(100, 100, 100);
+   font-size: 12px;
+  
+    
+  }
+
+  .divWeightCake::after{
+    content: "Вес в граммах";
+   position: absolute;
+   width: 85%;
+   top: -20px;
+   left: 0;
+   right: 0;
+   text-align: center;
+   color:  rgb(100, 100, 100);
+   font-size: 12px;
+  
+    
+  }
+  
+  .divNameProductUser::after{
+    content: "Наименование ингредиента, граммы";
+   position: absolute;
+   width: 105%;
+   bottom: -16px;
+   left: 0;
+   right: 0;
+   text-align: center;
+   color:  rgb(100, 100, 100);
+   font-size: 12px;
+  
+    
+  }
+  
 
 
 
 }
 
-@media (max-width: 450px) {
+ @media (max-width: 450px) {
+  body .all .forms .formTag .divSizeFormCake, body .all .forms .formTag .divWeightCake{
+   width: 48%;
 
-  body .all .forms .formTag .sizeFormCake{
-    width: 50%;
-  }
-  body .all .forms .formTag .weightCake{
-    
   }
 
-  body .forms .formTag .nameProductUser{
-    
-    width: 312px;
-   
+  body .all .forms .formTag .divNameProductUser{
+    width: 60%;
   }
 
-  body .all .forms .formTag  .btn{
-    margin-top: 10px;
+  body .all .forms .formTag .divBtn{
+    width: 36%;
   }
 
-}
+} 
 ::-webkit-scrollbar {
   width: 0px; /* ширина для вертикального скролла */
   height: 2px; /* высота для горизонтального скролла */
@@ -138,12 +209,33 @@ margin-bottom: 40px;
 color: rgb(160, 160, 160);
 background: rgba(253, 247, 170, 0.445);
 transition: all 0.5s ease;
+animation: blinking 3s linear 0s infinite alternate-reverse ;
+box-shadow: 0px 0px 0px 0px #fff;
 
 }
 .helpBtn:hover{
   background:  rgb(238, 239, 255);
+  animation-duration: 0.5s;
 }
 
+@-webkit-keyframes blinking{
+  0%{
+    background: rgba(253, 247, 170, 0.445);
+    box-shadow: 0px 0px 0px 0px #fff;
+    color: rgb(160, 160, 160);
+  }
+  50%{
+    background: rgb(253, 247, 170);
+    box-shadow: 0px 0px 15px 10px rgb(253, 247, 170);
+    color: rgb(194, 194, 194);
+  }
+  100%{
+    background: rgba(253, 247, 170, 0.445);
+    box-shadow: 0px 0px 0px 0px #fff;
+    color: rgb(160, 160, 160);
+  }
+
+}
 .all .helpBtn:focus{
   outline: none;
 }
@@ -153,7 +245,7 @@ transition: all 0.5s ease;
     position: absolute;
     width: 50%;
     height: fit-content;
-    background: rgba(220, 222, 255, 0.911);
+    background: rgba(220, 222, 255, 0.952);
     top: 20%;
     left: 0;
     right: 0;
@@ -186,12 +278,12 @@ transition: all 0.5s ease;
 /* ОБЩИЕ СТИЛИ ФОРМЫ */
 .forms {
   width: 100%;
-  margin: 0 auto 40px;
+  margin: 0 auto 60px;
 }
 
 .forms .formTag{
     margin: 0 auto;
-    width: 50%;
+    width: 75%;
     min-width: 360px;
  
     display: flex;
@@ -201,6 +293,14 @@ transition: all 0.5s ease;
 
 
 /* ФОРМА РАЗМЕРА  */
+.divSizeFormCake,.divWeightCake, .divNameProductUser,.divBtn{
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 .sizeFormCake{
   border: 1px solid rgb(209, 209, 209);
   color: rgb(61, 61, 61);
@@ -210,6 +310,25 @@ transition: all 0.5s ease;
   padding: 0 10px;
   text-align: center;
   cursor: pointer;
+  display: block;
+  height: 100%;
+  box-sizing: content-box;
+  
+  
+}
+
+.divSizeFormCake::after{
+  content: "Размер формы";
+ position: absolute;
+ width: 85%;
+ bottom: -30px;
+ left: 0;
+ right: 0;
+ text-align: center;
+ color:  rgb(100, 100, 100);
+ font-size: 12px;
+
+  
 }
 
 .sizeFormCake option{
@@ -219,8 +338,7 @@ transition: all 0.5s ease;
   border-radius: 12px;
   background: rgb(248, 248, 248);
   border: 1px solid rgb(209, 209, 209);
-  height: 50px;
-  padding: 0px 0;
+ padding: 0px 0;
   box-sizing: content-box;
 }
 .sizeFormCake:focus{
@@ -230,7 +348,7 @@ transition: all 0.5s ease;
 
 /* ФОРМА ВВОДА ВЕСА */
 .forms .formTag .weightCake{
-  height: 50px;
+  height: 100%;
   padding: 0px 20px;
   border-radius: 12px;
   border: 1px solid rgb(209, 209, 209);
@@ -239,22 +357,62 @@ transition: all 0.5s ease;
     width: 80px;
     box-sizing: content-box;
     margin-right: 10px;
+    position: relative;
+    display: block;
   
 }
 .forms .formTag .weightCake:focus{
   outline: none;
 }
 
+.divWeightCake::after{
+  content: "Вес в граммах";
+ position: absolute;
+ width: 85%;
+ bottom: -16px;
+ left: 0;
+ right: 0;
+ text-align: center;
+ color:  rgb(100, 100, 100);
+ font-size: 12px;
+
+  
+}
+
+
+
 /* 
 ФОРМА ВВОДА ДАННЫХ */
+
+.forms .formTag  .divNameProductUser{
+  width: 100%;
+  max-width: 500px;
+  
+}
+
+.divNameProductUser::after{
+  content: "Наименование ингредиента, граммы";
+ position: absolute;
+ width: 105%;
+ bottom: -16px;
+ left: 0;
+ right: 0;
+ text-align: center;
+ color:  rgb(100, 100, 100);
+ font-size: 12px;
+
+  
+}
+
+
 .nameProductUser {
-  height: 50px;
+  height: 100%;
   padding: 0px 20px;
   border-radius: 12px;
   border: 1px solid rgb(209, 209, 209);
   color: rgb(61, 61, 61);
   background: rgb(248, 248, 248);
-    width: 60%;
+    width: 100%;
     box-sizing: content-box;
 }
 
@@ -264,7 +422,7 @@ transition: all 0.5s ease;
 
 /* КНОПКА ДОБАВИТЬ */
 .btn {
-  height: 50px;
+  height: 100%;
   display: block;
   width: 120px;
   font-size: 12px;
@@ -273,7 +431,7 @@ transition: all 0.5s ease;
   cursor: pointer;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
-  margin-left: 10px;
+  margin-left: 30px;
   color: rgb(61, 61, 61);
   border: 1px solid rgb(209, 209, 209);
   padding: 0;
