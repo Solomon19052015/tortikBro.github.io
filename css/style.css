@@ -112,6 +112,7 @@
    text-align: center;
    color:  rgb(100, 100, 100);
    font-size: 12px;
+   height: 10px;
   
     
   }
@@ -126,6 +127,7 @@
    text-align: center;
    color:  rgb(100, 100, 100);
    font-size: 12px;
+   height: 10px;
   
     
   }
@@ -140,6 +142,7 @@
    text-align: center;
    color:  rgb(100, 100, 100);
    font-size: 12px;
+   height: 10px;
   
     
   }
@@ -156,11 +159,11 @@
   }
 
   body .all .forms .formTag .divNameProductUser{
-    width: 60%;
+    width: 70%;
   }
 
   body .all .forms .formTag .divBtn{
-    width: 36%;
+    width: 26%;
   }
 
 } 
@@ -260,12 +263,14 @@ box-shadow: 0px 0px 0px 0px #fff;
     transform: scale(0);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
     transform-origin: top center;
+    opacity: 0;
 }
 .helpWindow:hover{
   background: rgb(209, 212, 255);
 }
 .all .helpWindow.openHelpWindow{
   transform: scale(1);
+  opacity: 1;
   
 }
 
