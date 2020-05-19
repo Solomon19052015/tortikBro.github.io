@@ -155,7 +155,7 @@ document.onkeyup = function (e) {
 	if (e.keyCode === 13) {
 		inputValueGo();
     }
-    else if(e.keyCode == 46){
+    else if(e.keyCode == 36){
         clearListFunctionEvent();
     }
 	// Отменяем действие браузера
@@ -381,8 +381,8 @@ function eventRecalculation(){
     }
    
     let factor = calculationFactor(lastSizeFormCake, nowSizeCake);
-    savePriceOnArray= recalculationValue(savePriceOnArray,factor,"price");
-    saveGramOnArray = recalculationValue(saveGramOnArray,factor,"gram");
+    savePriceOnArray= recalculationValue(savePriceOnArray,factor,"price",stateSizeForm);
+    saveGramOnArray = recalculationValue(saveGramOnArray,factor,"gram",stateSizeForm);
    
     console.log(savePriceOnArray);
     totalPrice= sumAfterRecaculation(savePriceOnArray);
@@ -396,9 +396,11 @@ function eventRecalculation(){
         totalPrice = 0;
         totalGram = 0;
     }
-
-    addHtmlTotalPrice(totalPriceEl,totalPrice);
-    addHtmlTotalGram(totalGramEl,totalGram);
+    if(totalPrice != 0 ){
+        addHtmlTotalPrice(totalPriceEl,totalPrice);
+        addHtmlTotalGram(totalGramEl,totalGram);
+    }
+  
  
     lastSizeFormCake=nowSizeCake;
 
@@ -407,11 +409,11 @@ function eventRecalculation(){
 
 
 //ОСНОВНОЙ ПЕРЕРАСЧЕТ КАЖДОГО ПУНКТА СПИСКА ПО ИЗМЕНЕНИЮ ФОРМЫ 
-function recalculationValue(arr, factor,name){
+function recalculationValue(arr, factor,name,boolValue){
       
     for(let i = 0; i < arr.length; i++){
     
-        if(arr[i] != null && stateSizeForm ){
+        if(arr[i] != null && boolValue ){
          
             if(name == "gram"){
                 arr[i] = (arr[i] * factor).toFixed(0);
@@ -427,7 +429,7 @@ function recalculationValue(arr, factor,name){
         searchTagRecalculation(i,name,arr[i]);
 
         }
-        else if(arr[i] != null && !stateSizeForm){
+        else if(arr[i] != null && !boolValue){
            
             if(name == "gram"){
                 arr[i] = (arr[i] / factor).toFixed(0);
@@ -506,6 +508,7 @@ function clearListFunctionEvent(){
     totalGram=  cleatTotalValue(totalGram);
     addHtmlTotalPrice(totalPriceEl,0);
     addHtmlTotalPrice(totalGramEl,0);
+    weightCakeElement.value = '';
     countClass = -1;
  
 }
@@ -535,3 +538,64 @@ function clearListHTML(){
 function cleatTotalValue(val){
     return val = 0;
 }
+
+
+
+//ПОДБОР ПО ВЕСУ
+let weightCakeElement = document.querySelector(".weightCake");
+let valueWeightCake;
+let lastWeightCake = 1;
+let boolWeight = true;
+
+weightCakeElement.addEventListener("blur", recalculationWeightEvent);
+
+function recalculationWeightEvent(){
+    
+    valueWeightCake = weightCakeElement.value;
+    if(valueWeightCake == 0 || isNaN(valueWeightCake)){
+        return;
+        
+    }
+
+    if(lastWeightCake > valueWeightCake){
+        boolWeight = false
+    }
+    else{
+        boolWeight = true
+    }
+
+    
+    let factorWeight  = factorWeightFunction(valueWeightCake,totalGram);
+  
+    console.log(valueWeightCake);
+    savePriceOnArray= recalculationValue(savePriceOnArray,factorWeight,"price",boolWeight);
+    saveGramOnArray = recalculationValue(saveGramOnArray,factorWeight,"gram",boolWeight);
+
+    totalPrice= sumAfterRecaculation(savePriceOnArray);
+    totalGram= sumAfterRecaculation(saveGramOnArray);
+
+    if(totalPrice !=undefined && totalGram !=undefined){
+        totalPrice = totalPrice.toFixed(2);
+       totalGram = totalGram.toFixed(0);
+       }
+       else{
+           totalPrice = 0;
+           totalGram = 0;
+       }
+       if(totalPrice != 0 ){
+           addHtmlTotalPrice(totalPriceEl,totalPrice);
+           addHtmlTotalGram(totalGramEl,totalGram);
+       }
+
+
+    
+
+}
+
+//ОПРЕДЕЛЕНИЕ КОЭФФИЦИЕНТА МНОЖИТЕЛЯ ДЛЯ ПОДГОНКИ ПО ВЕСУ
+function factorWeightFunction(valForm, totalWeight){
+    valueWeightCake = Number(valForm);
+    return valueWeightCake/totalWeight;
+}
+
+

@@ -59,14 +59,38 @@
    body .all .forms .formTag .sizeFormCake{
     height: 50px;
     box-sizing: content-box;
-     width: 50%;
+     width: 55%;
     margin-bottom: 10px;
     padding: 0 20px;
     
     
   }
+  body .all .forms .formTag .weightCake{
+    margin-right: 0;
+  }
 
 
+
+}
+
+@media (max-width: 450px) {
+
+  body .all .forms .formTag .sizeFormCake{
+    width: 50%;
+  }
+  body .all .forms .formTag .weightCake{
+    
+  }
+
+  body .forms .formTag .nameProductUser{
+    
+    width: 312px;
+   
+  }
+
+  body .all .forms .formTag  .btn{
+    margin-top: 10px;
+  }
 
 }
 ::-webkit-scrollbar {
@@ -204,6 +228,23 @@ transition: all 0.5s ease;
 }
 
 
+/* ФОРМА ВВОДА ВЕСА */
+.forms .formTag .weightCake{
+  height: 50px;
+  padding: 0px 20px;
+  border-radius: 12px;
+  border: 1px solid rgb(209, 209, 209);
+  color: rgb(61, 61, 61);
+  background: rgb(248, 248, 248);
+    width: 80px;
+    box-sizing: content-box;
+    margin-right: 10px;
+  
+}
+.forms .formTag .weightCake:focus{
+  outline: none;
+}
+
 /* 
 ФОРМА ВВОДА ДАННЫХ */
 .nameProductUser {
@@ -225,7 +266,7 @@ transition: all 0.5s ease;
 .btn {
   height: 50px;
   display: block;
-  width: 100px;
+  width: 120px;
   font-size: 12px;
   border-radius: 12px;
   background: rgb(248, 248, 248);
