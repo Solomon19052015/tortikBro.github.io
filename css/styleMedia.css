@@ -1,0 +1,163 @@
+
+@media (max-width: 800px) {
+    body .content {
+      width: 100%;
+    }
+    body .forms{
+      width: 100%;
+    }
+  
+    body .forms .formTag{
+      width: 95%;
+      
+    }
+    body .forms .formTag .divNameProductUser{
+      width: 50%;
+    }
+  
+    body .all h1 {
+      width: 100%;
+    }
+    body .all .helpWindow{
+      width: 75%;
+      padding: 30px;
+    }
+  }
+  
+    @media (max-width: 650px) {
+  
+    body .forms{
+      margin-bottom: 20px;
+    }
+    body .headTable{
+        width: 100%;
+        padding: 0;
+        padding-top: 5px;
+        padding-bottom: 20px;
+    }
+   
+    body .all .forms .formTag{
+      width: 90%;
+      flex-flow: row wrap;
+      
+      padding: 30px 0 20px;
+     
+    
+      
+    }
+    body .all .forms .divAddFunction{
+
+    }
+    body .all .forms .divAddFunction:after{
+        top: -32px
+    }
+
+    body .all .forms  .listAddFunction{
+
+    }
+    body .all .forms .divSizeFormCake{
+      width: 70%;
+      justify-content: flex-start;
+  
+    }
+  
+    body .all .forms .divWeightCake{
+      width: 70%;
+    
+    }
+  
+    body .all .forms .divNameProductUser{
+      width: 70%;
+      justify-content: flex-start;
+    }
+    body .all .forms .divBtn{
+      width: 30%;
+      margin-left: 0px;
+      justify-content: flex-end;
+      
+    }
+  
+    body .all .forms .btn{
+      width: 90%;
+      margin-left: 0;
+      display: block;
+    }
+    body .forms .formTag .nameProductUser{
+      
+      width: 90%;
+     
+    }
+  
+     body .all .forms .formTag .sizeFormCake{
+      height: 50px;
+      box-sizing: content-box;
+       width: 90%;
+      margin-bottom: 0px;
+      padding: 0 20px;
+      
+      
+    }
+    body .all .forms .formTag .weightCake{
+      margin-right: 0;
+      width: 90%;
+    }
+  
+    .divSizeFormCake::after{
+     
+     top: -20px;
+     left: 0;
+     right: 0;
+     height: 10px;
+    
+      
+    }
+  
+    .divWeightCake::after{
+      content: "Вес в граммах";
+     position: absolute;
+     width: auto;
+     top: 17px;
+     left: 0%;
+     text-align: center;
+     color:  var(--colorTextAdditional);
+     font-size: 12px;
+     height: 10px;
+    
+      
+    }
+    
+    .divNameProductUser::after{
+      content: "Наименование ингредиента, граммы";
+     position: absolute;
+     width: 105%;
+     bottom: -16px;
+     left: 0;
+     right: 0;
+     text-align: center;
+     color: var(--colorTextAdditional);
+     font-size: 12px;
+     height: 10px;
+    
+      
+    }
+    
+  
+  
+  
+  }
+  
+   @media (max-width: 450px) {
+    /* body .all .forms .formTag .divSizeFormCake, body .all .forms .formTag .divWeightCake{
+     width: 48%;
+  
+    } */
+  
+    body .all .forms .formTag .divNameProductUser{
+      width: 70%;
+    }
+  
+    body .all .forms .formTag .divBtn{
+      width: 26%;
+    }
+  
+  } 

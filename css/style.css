@@ -8,165 +8,11 @@
   src: url("../font/Roboto-Light.ttf");
 }
 
-@media (max-width: 800px) {
-  body .content {
-    width: 100%;
-  }
-  body .forms{
-    width: 100%;
-  }
-
-  body .forms .formTag{
-    width: 95%;
-    
-  }
-  body .forms .formTag .divNameProductUser{
-    width: 50%;
-  }
-
-  body .all h1 {
-    width: 100%;
-  }
-  body .all .helpWindow{
-    width: 75%;
-    padding: 30px;
-  }
+:root{
+  --colorTextMain:  rgb(61, 61, 61);
+  --colorTextAdditional:   rgb(100, 100, 100);
 }
 
-  @media (max-width: 650px) {
-
-  body .forms{
-    margin-bottom: 20px;
-  }
-  body .headTable{
-      width: 100%;
-      padding: 0;
-      padding-top: 5px;
-      padding-bottom: 20px;
-  }
- 
-  body .all .forms .formTag{
-    width: 90%;
-    flex-flow: row wrap;
-    overflow: hidden;
-    padding: 30px 0 20px;
-    height: 120px;
-  
-    
-  }
-
-  body .all .forms .divSizeFormCake{
-    width: 50%;
-    justify-content: flex-start;
-
-  }
-
-  body .all .forms .divWeightCake{
-    width: 50%;
-    justify-content: flex-end;
-  }
-
-  body .all .forms .divNameProductUser{
-    width: 70%;
-    justify-content: flex-start;
-  }
-  body .all .forms .divBtn{
-    width: 30%;
-    margin-left: 0px;
-    justify-content: flex-end;
-    
-  }
-
-  body .all .forms .btn{
-    width: 90%;
-    margin-left: 0;
-    display: block;
-  }
-  body .forms .formTag .nameProductUser{
-    
-    width: 90%;
-   
-  }
-
-   body .all .forms .formTag .sizeFormCake{
-    height: 50px;
-    box-sizing: content-box;
-     width: 90%;
-    margin-bottom: 0px;
-    padding: 0 20px;
-    
-    
-  }
-  body .all .forms .formTag .weightCake{
-    margin-right: 0;
-    width: 90%;
-  }
-
-  .divSizeFormCake::after{
-    content: "Размер формы";
-   position: absolute;
-   width: 85%;
-   top: -20px;
-   left: 0;
-   right: 0;
-   text-align: center;
-   color:  rgb(100, 100, 100);
-   font-size: 12px;
-   height: 10px;
-  
-    
-  }
-
-  .divWeightCake::after{
-    content: "Вес в граммах";
-   position: absolute;
-   width: 85%;
-   top: -20px;
-   left: 0;
-   right: 0;
-   text-align: center;
-   color:  rgb(100, 100, 100);
-   font-size: 12px;
-   height: 10px;
-  
-    
-  }
-  
-  .divNameProductUser::after{
-    content: "Наименование ингредиента, граммы";
-   position: absolute;
-   width: 105%;
-   bottom: -16px;
-   left: 0;
-   right: 0;
-   text-align: center;
-   color:  rgb(100, 100, 100);
-   font-size: 12px;
-   height: 10px;
-  
-    
-  }
-  
-
-
-
-}
-
- @media (max-width: 450px) {
-  body .all .forms .formTag .divSizeFormCake, body .all .forms .formTag .divWeightCake{
-   width: 48%;
-
-  }
-
-  body .all .forms .formTag .divNameProductUser{
-    width: 70%;
-  }
-
-  body .all .forms .formTag .divBtn{
-    width: 26%;
-  }
-
-} 
 ::-webkit-scrollbar {
   width: 0px; /* ширина для вертикального скролла */
   height: 2px; /* высота для горизонтального скролла */
@@ -178,13 +24,19 @@
   box-shadow: inset 1px 1px 10px #f3faf7;
 }
 
+
+
+
+
+
 body {
   font-size: 14px;
   font-family: "Roboto Lt";
   background: rgb(248, 248, 248);
-  color: rgb(66, 66, 66);
+  color: var(--colorTextMain);
   font-weight: 100;
 }
+
 
 .all{
     margin-top: 40px;
@@ -209,7 +61,7 @@ cursor: pointer;
 margin: 0 auto ;
 display: block;
 margin-bottom: 40px;
-color: rgb(160, 160, 160);
+color:var(--colorTextMain);
 background: rgba(253, 247, 170, 0.445);
 transition: all 0.5s ease;
 animation: blinking 3s linear 0s infinite alternate-reverse ;
@@ -225,7 +77,7 @@ box-shadow: 0px 0px 0px 0px #fff;
   0%{
     background: rgba(253, 247, 170, 0.445);
     box-shadow: 0px 0px 0px 0px #fff;
-    color: rgb(160, 160, 160);
+    color: var(--colorTextMain);
   }
   50%{
     background: rgb(253, 247, 170);
@@ -235,7 +87,7 @@ box-shadow: 0px 0px 0px 0px #fff;
   100%{
     background: rgba(253, 247, 170, 0.445);
     box-shadow: 0px 0px 0px 0px #fff;
-    color: rgb(160, 160, 160);
+    color: var(--colorTextMain);
   }
 
 }
@@ -295,6 +147,121 @@ box-shadow: 0px 0px 0px 0px #fff;
     justify-content: center;
 
 }
+/* ДОПОЛНИТЕЛЬНЫЕ ФУНКЦИИ */
+.divAddFunction{
+  width: 50px;
+  height: 50px;
+  margin: 5px 0;
+  margin-right: 10px;
+  position: relative;
+  text-align: center;
+  padding: 0;
+
+
+}
+
+.divAddFunction::after{
+  content: 'Дополнительные функции';
+  position: absolute;
+width: 100px;
+ bottom: -5px;
+ left: -23px;
+ right: 0;
+ text-align: center;
+ color: var(--colorTextAdditional);
+ font-size: 12px;
+ transition: all 0.3s cubic-bezier(0.575, 0.885, 0.32, 1.275);
+ transform:  scale(0);
+ opacity: 0;
+ height: 0px;
+}
+
+.divAddFunction:hover::after{
+  transform:  scale(1);
+  opacity: 1;
+}
+
+
+/* СТИЛИ КНОПКИ ДОП ФУНКЦИИ */
+.divAddFunction .addFunction{
+  width: 100%;
+  height: 100%;
+  min-width: 50px;
+  font-size: 26px;
+  border-radius: 12px;
+  background: rgb(248, 248, 248);
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  color: var(--colorTextAdditional);
+  border: 1px solid rgb(209, 209, 209);
+  padding: 0;
+  box-sizing: content-box;
+}
+
+.divAddFunction .addFunction:hover{
+  background: rgb(238, 239, 255);
+}
+.divAddFunction .addFunction:focus{
+  outline: none;
+}
+
+.listAddFunction{
+    position: absolute;
+    background: rgb(241, 250, 238);
+    width: 300px;
+    min-height: 100px;
+    padding: 30px;
+    text-align: start;
+    z-index: 10;
+    margin-top: 10px;
+    border-radius: 20px;
+    transform: scale(0);
+    transition: all 0.3s ease;
+    transform-origin: left top;
+    color: var(--colorTextAdditional);
+    border: 1px solid rgb(209, 209, 209);
+   box-sizing: content-box;
+
+}
+
+.openListAddFunction{
+  transform: scale(1);
+}
+
+.listAddFunction ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listAddFunction ul li{
+cursor: pointer;
+border: 1px solid rgb(241, 250, 238);;
+box-sizing: border-box;
+transition: all 0.3s ease;
+position: relative;
+text-align: center;
+padding: 3px;
+
+}
+
+.listAddFunction ul li::before{
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  bottom: 0;
+  background:  rgb(209, 209, 209);
+  
+  transition: all 0.3s ease;
+}
+
+
+.listAddFunction ul li:hover::before{
+ width: 90%;
+ box-shadow: 0px -3px 12px 7px rgba(255, 255, 255, 0.445);
+}
 
 
 /* ФОРМА РАЗМЕРА  */
@@ -304,11 +271,15 @@ box-shadow: 0px 0px 0px 0px #fff;
   justify-content: center;
   align-items: center;
   position: relative;
+  margin: 5px 0; 
+  
+
 }
+
 
 .sizeFormCake{
   border: 1px solid rgb(209, 209, 209);
-  color: rgb(61, 61, 61);
+  color: var(--colorTextMain);
   background: rgb(248, 248, 248);
   border-radius: 12px;
   margin-right: 10px;
@@ -318,6 +289,7 @@ box-shadow: 0px 0px 0px 0px #fff;
   display: block;
   height: 100%;
   box-sizing: content-box;
+ 
   
   
 }
@@ -326,14 +298,22 @@ box-shadow: 0px 0px 0px 0px #fff;
   content: "Размер формы";
  position: absolute;
  width: 85%;
- bottom: -30px;
+ bottom: -5px;
  left: 0;
  right: 0;
  text-align: center;
- color:  rgb(100, 100, 100);
+ color: var(--colorTextAdditional);
  font-size: 12px;
-
+ transition: all 0.3s cubic-bezier(0.575, 0.885, 0.32, 1.275);
+ transform:  scale(0);
+ opacity: 0;
+ height: 0px;
   
+}
+.divSizeFormCake:hover::after{
+ 
+  transform: scale(1);
+  opacity: 1;
 }
 
 .sizeFormCake option{
@@ -352,12 +332,21 @@ box-shadow: 0px 0px 0px 0px #fff;
 
 
 /* ФОРМА ВВОДА ВЕСА */
+
+body .all .divWeightCake{
+ /*  position: absolute; */
+transform: scale(0);
+transition: all 0.3s ease;
+width: 0;
+height: 0;
+}
+
 .forms .formTag .weightCake{
   height: 100%;
   padding: 0px 20px;
   border-radius: 12px;
   border: 1px solid rgb(209, 209, 209);
-  color: rgb(61, 61, 61);
+  color: var(--colorTextMain);
   background: rgb(248, 248, 248);
     width: 80px;
     box-sizing: content-box;
@@ -374,15 +363,24 @@ box-shadow: 0px 0px 0px 0px #fff;
   content: "Вес в граммах";
  position: absolute;
  width: 85%;
- bottom: -16px;
+ bottom: -20px;
  left: 0;
  right: 0;
  text-align: center;
- color:  rgb(100, 100, 100);
+ color: var(--colorTextAdditional);
  font-size: 12px;
-
+ transition: all 0.3s cubic-bezier(0.575, 0.885, 0.32, 1.275);
+ transform:  scale(0);
+ opacity: 0;
   
 }
+
+.divWeightCake:hover::after{
+ 
+  transform:  scale(1);
+  opacity: 1;
+}
+
 
 
 
@@ -399,23 +397,30 @@ box-shadow: 0px 0px 0px 0px #fff;
   content: "Наименование ингредиента, граммы";
  position: absolute;
  width: 105%;
- bottom: -16px;
+ bottom: -20px;
  left: 0;
  right: 0;
  text-align: center;
- color:  rgb(100, 100, 100);
+ color: var(--colorTextAdditional);
  font-size: 12px;
 
+ opacity: 0;
+ transition: all 0.3s cubic-bezier(0.575, 0.885, 0.32, 1.275);
+ transform:  scale(0);
   
 }
 
+.divNameProductUser:hover::after{
+  transform: scale(1);
+  opacity: 1;
+}
 
 .nameProductUser {
   height: 100%;
   padding: 0px 20px;
   border-radius: 12px;
   border: 1px solid rgb(209, 209, 209);
-  color: rgb(61, 61, 61);
+  color: var(--colorTextMain);
   background: rgb(248, 248, 248);
     width: 100%;
     box-sizing: content-box;
@@ -437,7 +442,7 @@ box-shadow: 0px 0px 0px 0px #fff;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
   margin-left: 30px;
-  color: rgb(61, 61, 61);
+  color: var(--colorTextMain);
   border: 1px solid rgb(209, 209, 209);
   padding: 0;
   box-sizing: content-box;
@@ -455,10 +460,10 @@ box-shadow: 0px 0px 0px 0px #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px 20px;
+  padding: 0px 20px;
   margin: 0 auto;
   width: 80%;
-  height: 100%;
+  height: 70px;
   min-width: 360px;
   -ms-flex-pack: distribute;
   justify-content: space-around;
@@ -469,14 +474,20 @@ box-shadow: 0px 0px 0px 0px #fff;
 }
 
 .osn {
-  height: 30px;
+  height: 100%;
   text-align: center;
-  margin: 15px 0 0 0px;
+  margin: 0;
   font-family: "Roboto";
   text-align: center;
   width: 33%;
   font-weight: 600;
   padding: 0px 0px;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
 }
 
 
@@ -615,4 +626,24 @@ box-shadow: 0px 0px 0px 0px #fff;
 
 .all .clearList:focus{
   outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* КЛАСС ДОБАВЛЕНИЕ ДОП ФУНКЦИИ */
+body .all .addMoreFunction{
+  transform: scale(1);
+/*   position: relative; */
+  width: 130px;
+  height: 50px;
 }

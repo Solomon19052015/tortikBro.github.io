@@ -548,3 +548,70 @@ function factorWeightFunction(valForm, totalWeight) {
   valueWeightCake = Number(valForm);
   return valueWeightCake / totalWeight;
 }
+
+
+//ОТКРЫТИЕ ОКНА ДОПОЛНИТЕЛЬНЫЕ ФУНКЦИИ
+let addFunctionButtonElement = document.querySelector(".addFunction");
+let listAddFunctionElement = document.querySelector(".listAddFunction");
+let addFunctionItemElement = document.querySelectorAll(".addFunctionItem");
+let divWeightCakeElement = document.querySelector(".divWeightCake");
+addFunctionButtonElement.addEventListener('click', openAddListFunctionEvent);
+let countOpenAddFunction =0;
+function openAddListFunctionEvent(){
+  countOpenAddFunction++;
+  if(countOpenAddFunction ==1){
+    listAddFunctionElement.classList.add('openListAddFunction');
+  }
+  else if(countOpenAddFunction == 2){
+    listAddFunctionElement.classList.remove('openListAddFunction');
+    countOpenAddFunction =0;
+  }
+}
+
+
+function addItemAddFuctionEvent(){
+
+  let el = event.target;
+  let foundEl = searchAddFunctionEl(el);
+ let detectorClass= removeClassOpen(foundEl,"addMoreFunction");
+  if(detectorClass){
+    return;
+ 
+  }
+  else{
+    addClassOpen(foundEl,"addMoreFunction");
+  
+  }
+ 
+ 
+}
+
+function addEventItemList(arr){
+  for(let i =0; i < arr.length; i++ ){
+    arr[i].addEventListener('click', addItemAddFuctionEvent);
+  }
+}
+
+function addClassOpen(el, className){
+  el.classList.add(className);
+}
+
+function removeClassOpen(el, className){
+  if(el.classList[2] == className){
+  el.classList.remove(className);
+  return true
+  }
+  else{
+    return false
+  }
+  ;
+}
+
+function searchAddFunctionEl(el){
+  let className = el.classList[1];
+  let searchEl = document.querySelector("." + className + "1");
+   return searchEl;
+}
+
+addEventItemList(addFunctionItemElement);
+
