@@ -111,10 +111,15 @@ let namePriceProduct = {
 };
 
 //СОБЫТИЕ НАЖАТИЯ КНОПКИ
+input.onchange  = ()=>{
+   
+  input.value.indexOf(",")?input.setAttribute('type','number'):null;
 
+}
 function inputValueGo() {
   inputValue = input.value;
   input.focus();
+  input.setAttribute('type','text');
   // console.log(inputValue.length);
   if (inputValue.length == 0) {
     return;
@@ -128,7 +133,7 @@ function inputValueGo() {
 
   totalPrice = Number(totalPrice) + Number(resultCalculation);
   totalPrice = totalPrice.toFixed(2);
-  console.log(totalPrice + " " + typeof totalPrice);
+ 
   totalGram = Number(totalGram) + Number(array[1]);
   /*  if(totalPrice>0){
     totalPrice = Number(totalPrice.toFixed(2));
