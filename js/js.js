@@ -114,6 +114,7 @@ let namePriceProduct = {
 
 function inputValueGo() {
   inputValue = input.value;
+  input.focus();
   // console.log(inputValue.length);
   if (inputValue.length == 0) {
     return;
