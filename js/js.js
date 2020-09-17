@@ -120,7 +120,7 @@ let namePriceProduct = {
 function inputValueGo() {
   inputValue = input.value;
   input.focus();
-   input.setAttribute('inputmode','none'); 
+   input.setAttribute('inputmode','text'); 
   // console.log(inputValue.length);
   if (inputValue.length == 0) {
     return;
