@@ -111,15 +111,15 @@ let namePriceProduct = {
 };
 
 //СОБЫТИЕ НАЖАТИЯ КНОПКИ
-/* input.onchange  = ()=>{
+ input.oninput = ()=>{
    
-  input.value.indexOf(",")?input.setAttribute('type','email'):null;
+  input.value.indexOf(",")?input.setAttribute('inputmode','numeric'):null;
 
-} */
+} 
 function inputValueGo() {
   inputValue = input.value;
   input.focus();
-  /* input.setAttribute('type','text'); */
+   input.setAttribute('inputmode','none'); 
   // console.log(inputValue.length);
   if (inputValue.length == 0) {
     return;
