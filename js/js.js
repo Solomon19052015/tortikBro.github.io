@@ -113,8 +113,8 @@ let namePriceProduct = {
 //СОБЫТИЕ НАЖАТИЯ КНОПКИ
  input.oninput = ()=>{
    
-  input.value.indexOf(",")?input.setAttribute('inputmode','tel'):null;
-  console.log("98")
+  input.value.indexOf(",")?input.setAttribute('inputmode','numeric'):null;
+ 
 
 } 
 function inputValueGo() {
