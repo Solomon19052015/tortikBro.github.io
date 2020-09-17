@@ -113,8 +113,8 @@ let namePriceProduct = {
 //СОБЫТИЕ НАЖАТИЯ КНОПКИ
  input.oninput = ()=>{
    
-  input.value.indexOf(",")?input.setAttribute('inputmode','numeric'):null;
- 
+   input.value.includes(",",3)?input.setAttribute('inputmode','numeric'):null; 
+
 
 } 
 function inputValueGo() {
